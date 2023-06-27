@@ -1,0 +1,4 @@
+SELECT
+    *
+FROM
+    ANIMAL_INS AS t
