@@ -1,10 +1,10 @@
-# [unrated] 카운트 업 - 181920 
+# [level unrated] 카운트 업 - 181920 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181920) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181920?language=java) 
 
 ### 성능 요약
 
-메모리: 33.3 MB, 시간: 0.03 ms
+메모리: 88.1 MB, 시간: 0.01 ms
 
 ### 구분
 
@@ -12,18 +12,22 @@
 
 ### 채점결과
 
-Empty
+정확성: 100.0<br/>합계: 100.0 / 100.0
+
+### 제출 일자
+
+2023년 12월 4일 16:26:58
 
 ### 문제 설명
 
-<p>정수 <code>start</code>와 <code>end</code>가 주어질 때, <code>start</code>부터 <code>end</code>까지의 숫자를 차례로 담은 리스트를 return하도록 solution 함수를 완성해주세요.</p>
+<p>정수 <code>start_num</code>와 <code>end_num</code>가 주어질 때, <code>start_num</code>부터 <code>end_num</code>까지의 숫자를 차례로 담은 리스트를 return하도록 solution 함수를 완성해주세요.</p>
 
 <hr>
 
 <h5>제한사항</h5>
 
 <ul>
-<li>0 ≤ <code>start</code> ≤ <code>end</code> ≤ 50</li>
+<li>0 ≤ <code>start_num</code> ≤ <code>end_num</code> ≤ 50</li>
 </ul>
 
 <hr>
@@ -31,8 +35,8 @@ Empty
 <h5>입출력 예</h5>
 <table class="table">
         <thead><tr>
-<th>start</th>
-<th>end</th>
+<th>start_num</th>
+<th>end_num</th>
 <th>result</th>
 </tr>
 </thead>
@@ -54,4 +58,4 @@ Empty
 </ul>
 
 
-> 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+> 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
