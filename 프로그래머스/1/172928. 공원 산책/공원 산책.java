@@ -38,7 +38,7 @@ class Solution {
                     break;
                 }
             }
-            
+            // 시작점을 찾았으므로 반복문 종료
             if (found) break;
         }
 
@@ -85,8 +85,8 @@ class Solution {
             }
 
             if (!blocked) {
-                answer[1] += direction[1] * distance;
-                answer[0] += direction[0] * distance;
+                answer[1] = x;
+                answer[0] = y;
             }
         }
 
