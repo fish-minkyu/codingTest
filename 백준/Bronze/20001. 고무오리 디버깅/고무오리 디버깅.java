@@ -4,33 +4,29 @@ import java.io.InputStreamReader;
 import java.util.Stack;
 
 public class Main {
-  public static void main(String[] args) throws IOException {
-    BufferedReader reader =
-      new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        Stack<String> problem = new Stack<>();
 
-    // stack
-    Stack<String> problem = new Stack<>();
-    int count = 0;
+        while (true) {
+            String duck = br.readLine();
+            // break 조건 명시
+            if ("고무오리 디버깅 끝".equals(duck)) break;
 
-    while (true) {
-      String duck = reader.readLine();
-      // 멈춤 조건 명시
-      if (duck.equals("고무오리 디버깅 끝")) break;
-      // 문제라면 push
-      if (duck.equals("문제")) problem.push("문제");
-      // 비어있는데 고무오리라면 문제 X 2
-      if (problem.empty()) {
-        if (duck.equals("고무오리")) {
-          problem.push("문제");
-          problem.push("문제");
+            // 문제라면 push
+            if ("문제".equals(duck)) problem.push(duck);
+            if (problem.isEmpty()) {
+                if ("고무오리".equals(duck)) {
+                    problem.push("문제");
+                    problem.push("문제");
+                }
+            } else {
+                if ("고무오리".equals(duck)) {
+                    problem.pop();
+                }
+            }
         }
-      } else {
-        if (duck.equals("고무오리")) {
-          problem.pop();
-        }
-      }
+        // 순환 종료
+        System.out.println(problem.empty() ? "고무오리야 사랑해" : "힝구");
     }
-    // 순환 종료
-    System.out.println(problem.empty() ? "고무오리야 사랑해" : "힝구");
-  }
 }
