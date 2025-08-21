@@ -1,35 +1,49 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 public class Main {
-  public static void main(String[] args) throws IOException {
-    BufferedReader reader =
-      new BufferedReader(new InputStreamReader(System.in));
-
-    // 입력 한 줄 당 최대값, index+1, 입력 횟수를 기억해둔다.
-
-    int max = -1;
-    int index = -1;
-    int count = -1;
-
-    // 입력 횟수(행)
-    for (int i = 1; i <= 9; i++) {
-      StringTokenizer st = new StringTokenizer(reader.readLine(), " ");
-      // 인덱스 갯수(열)
-      for (int j = 1; j <= 9; j++) {
-        int num = Integer.parseInt(st.nextToken());
-        if (num > max) {
-          max = num;
-          index = j;
-          count = i;
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        // 기본적으로 9 * 9 배열로 고정되어 있다.
+        int[][] board = new int[9][9];
+        // 한줄씩 입력 받아가며
+        for (int i = 0; i < 9; i++) {
+            String[] row = reader.readLine().split(" ");
+            // 한줄의 숫자를 차례대로 넣어준다.
+            for (int j = 0; j < 9; j++) {
+                board[i][j] = Integer.parseInt(row[j]);
+            }
         }
-      }
-    }
 
-    // 전부 다 입력이 끝나면 최대값, 횟수, index+1을 반환한다.
-    System.out.println(max);
-    System.out.println(count + " " + index);
-  }
+        // 제일 왼쪽 위의 값을 기본 최댓값으로 상정한다.
+        int max = board[0][0];
+        // 그 위치를 기록한다.
+        int x = 0;
+        int y = 0;
+        // 모든 줄을 순회하고,
+        for (int i = 0; i < 9; i++) {
+            // 모든 칸을 순회한다.
+            for (int j = 0; j < 9; j++) {
+                // 현재의 위치가 기록된 값보다 더 크다.
+                if (board[i][j] > max) {
+                    // 해당 최댓값을 기록하고
+                    max = board[i][j];
+                    // x와 y의 위치도 기록해준다.
+                    x = j;
+                    y = i;
+                }
+            }
+        }
+        // 정답을 만들어준다.
+        StringBuilder answer = new StringBuilder();
+        // 최댓값
+        answer.append(max)
+            .append("\n")
+            .append(y + 1)
+            .append(" ")
+            .append(x + 1);
+        // 출력
+        System.out.println(answer);
+    }
 }
