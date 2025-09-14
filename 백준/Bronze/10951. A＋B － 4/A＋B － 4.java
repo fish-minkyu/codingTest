@@ -1,21 +1,17 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
-  public static void main(String[] args) throws IOException {
-    BufferedReader reader
-      = new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-    StringBuilder sb = new StringBuilder();
+        String str;
+        while ((str = reader.readLine()) != null) {
+            int a = Integer.parseInt(str.split(" ")[0]);
+            int b = Integer.parseInt(str.split(" ")[1]);
 
-    String str;
-
-    while ((str = reader.readLine()) != null) {
-      int a = Integer.parseInt(str.split(" ")[0]);
-      int b = Integer.parseInt(str.split(" ")[1]);
-
-      sb.append(a+b).append("\n");
+            System.out.println(a + b);
+        }
     }
-
-    System.out.println(sb);
-  }
 }
