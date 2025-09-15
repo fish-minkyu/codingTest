@@ -1,45 +1,41 @@
-import java.io.*;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
-  public static void main(String[] args) throws IOException {
-    BufferedReader reader
-      = new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        // 정보 받기
+        String[] info = reader.readLine().split(" ");
+        int N = Integer.parseInt(info[0]);
+        int M = Integer.parseInt(info[1]);
 
-    // StringTokenizer 생성
-    StringTokenizer st = new StringTokenizer(reader.readLine(), " ");
+        // 배열 생성
+        int[] arr = new int[N];
+        for (int i = 0; i < N; i++) {
+            arr[i] = i + 1;
+        }
 
-    int N = Integer.parseInt(st.nextToken());
-    int M = Integer.parseInt(st.nextToken());
+        // 역순으로 설정
+        for (int i = 1; i <= M ; i++) {
+            String[] reverseInfo = reader.readLine().split(" ");
+            int first = Integer.parseInt(reverseInfo[0]) - 1;
+            int last = Integer.parseInt(reverseInfo[1]) - 1;
 
-    // 배열 생성
-    int[] arr = new int[N];
-    // 1 ~ 5 값 넣기
-    for (int i = 0; i < N; i++) {
-      arr[i] = i+1;
+            // 역순 배치
+            while (first < last) {
+                int temp = arr[first];
+                arr[first++] = arr[last];
+                arr[last--] = temp;
+            }
+        }
+
+        // answer
+        StringBuilder answer = new StringBuilder();
+        for (int i = 0; i < N; i++) {
+            answer.append(arr[i]).append(" ");
+        }
+
+        System.out.println(answer);
     }
-
-    for (int i = 0; i < M; i++) {
-      // 재할당
-      st = new StringTokenizer(reader.readLine(), " ");
-      // index이므로 -1 넣기
-      int left = Integer.parseInt(st.nextToken()) -1;
-      int right = Integer.parseInt(st.nextToken()) -1;
-
-      // 역순 배치
-      // 후위 증감연산 사용
-      while (left < right) {
-        int temp = arr[left];
-        arr[left++] = arr[right];
-        arr[right--] = temp;
-      }
-    }
-    // BufferedReader 닫기
-    reader.close();
-
-    for (int result : arr)  {
-      System.out.print(result + " ");
-    }
-  }
 }
