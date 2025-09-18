@@ -1,18 +1,16 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 public class Main {
-  public static void main(String[] args) throws IOException {
-    BufferedReader reader =
-      new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-    StringTokenizer st = new StringTokenizer(reader.readLine(), " ");
-    
-    int a = Integer.parseInt(new StringBuilder(st.nextToken()).reverse().toString());
-    int b = Integer.parseInt(new StringBuilder(st.nextToken()).reverse().toString());
+        String[] info = reader.readLine().split(" ");
 
-    System.out.println(a > b ? a : b);
-  }
+        int a = Integer.parseInt(new StringBuilder(info[0]).reverse().toString());
+        int b = Integer.parseInt(new StringBuilder(info[1]).reverse().toString());
+        
+        System.out.println(a > b ? a : b);
+    }
 }
